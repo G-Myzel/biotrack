@@ -1,8 +1,13 @@
+import math
+
+
 def ler_numero(valor, nome):
     try:
         numero = float(str(valor).strip().replace(",", "."))
     except ValueError as erro:
         raise ValueError(f"{nome} precisa ser um número.") from erro
+    if not math.isfinite(numero):
+        raise ValueError(f"{nome} precisa ser um número finito.")
     return numero
 
 
